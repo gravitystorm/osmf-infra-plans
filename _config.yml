@@ -16,8 +16,8 @@
 title: Andy's OSMF Infrastructure Plans
 description: >- # this means to ignore newlines until "baseurl:"
   Some ideas for how to evolve the OSMF server infrastructure in 2019
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/osmf-infra-plans" # the subpath of your site, e.g. /blog
+url: "https://gravitystorm.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: gravitystorm
 github_username:  gravitystorm
 
