@@ -13,7 +13,7 @@ I've been part of the OpenStreetMap Foundation's Operations Working Group (OWG) 
 
 When I first got involved, the OSMF infrastructure was a few machines in a rack in an old university researcher's office, and it has slowly grown over the years, moved out of the office and into datacentres in various countries. The infrastructure has grown organically, with no significant changes in strategy in the last decade. I believe that we've approached a limit in manageability, and that some changes in strategy will make it much easier to continue over the next few years.
 
-At the time of writing (May 2019) the OSMF is managing 87 servers, and you can see the list of what they are an what they are for on the [OSMF Server Info](https://hardware.openstreetmap.org/) website. Which is, by the way, still my all-time most favourite example of what you can do with a bit of automation and static web pages. But that's a different story.
+At the time of writing (May 2019) the OSMF is managing 87 servers, and you can see the list of what they are and what they are for on the [OSMF Server Info](https://hardware.openstreetmap.org/) website. Which is, by the way, still my all-time most favourite example of what you can do with a bit of automation and static web pages. But that's a different story.
 
 The servers can be split into roughly three groups:
 
@@ -65,7 +65,7 @@ This isn't meant to be comprehensive, and I'm sure there are other solutions too
 
 ## Storage
 
-There's two main types of data storage that most services needs. These are databases, and somewhere to store other data like files. Currently every service that needs a database has their own, on the same machine, and stores all their files on the same machine too. Only the core database is different, with dedicated high-end database servers and a central file server, separate from the machines that run the service. I'll come back to that.
+There are two main types of data storage that most services need. These are databases, and somewhere to store other data like files. Currently every service that needs a database has their own, on the same machine, and stores all their files on the same machine too. Only the core database is different, with dedicated high-end database servers and a central file server, separate from the machines that run the service. I'll come back to that.
 
 The industry has coalesced on using [object storage](https://en.wikipedia.org/wiki/Object_storage), for example Amazon S3, for most data needs. These work well over network connections, are easy to scale, and are fault tolerant to hardware failures. Around three years ago I suggested that we set up [Ceph](https://en.wikipedia.org/wiki/Ceph_(software)) on some spare hardware that we own, and use the S3-compatible API for object storage. We could then use this object storage for aerial imagery, for example, and for storing GPX files and user avatars from the main site, and it could be used as a safe place to store data for many of our other services. This will avoid the restore-from-backups scenarios for most of our services.
 
@@ -99,7 +99,7 @@ We should also review the services that still use MySQL, and see how many can be
 
 ## Containerisation
 
-The world has moved to containers, for good reasons, and we should do so to. This would allow us to move services seamlessly from machine to machine, either for planned or unexpected outages. This would be an incremental project, and some services would need to wait until the storage and shared databases are available. But for me, this should be the eventual goal and a key target to aim for.
+The world has moved to containers, for good reasons, and we should do so too. This would allow us to move services seamlessly from machine to machine, either for planned or unexpected outages. This would be an incremental project, and some services would need to wait until the storage and shared databases are available. But for me, this should be the eventual goal and a key target to aim for.
 
 # The two or three next steps
 
